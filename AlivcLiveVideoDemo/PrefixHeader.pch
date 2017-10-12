@@ -1,0 +1,24 @@
+//
+//  PrefixHeader.pch
+//  AlivcLiveVideoDemo
+//
+//  Created by LYZ on 16/6/13.
+//  Copyright © 2016年 Alibaba Video Cloud. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#define ALIVC_LIVE_RONGCLOUD_APPKEY @"lmxuhwagxgdtd"
+#define ALIVC_LIVE_RONGCLOUD_APPSECRET @"sDMM3rbF3Ka"
+
+#import "NMGlobaDefine.h"
+#import "Masonry.h"
+#import "ZYHCommonService.h"
+
+
+#import "UIView+Toast.h"
+#import "LPuserModel.h"
+
+#endif /* PrefixHeader_pch */

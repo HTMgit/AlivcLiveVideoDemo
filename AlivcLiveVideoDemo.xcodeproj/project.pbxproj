@@ -1,0 +1,910 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06387B4E1F8CAFD700BB68F0 /* LPlivePlayingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06387B4D1F8CAFD700BB68F0 /* LPlivePlayingVC.m */; };
+		06387B511F8CB01000BB68F0 /* LPlivePlayingControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06387B501F8CB01000BB68F0 /* LPlivePlayingControlView.m */; };
+		06387B541F8CB02F00BB68F0 /* LPlivePlayingTalkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06387B531F8CB02F00BB68F0 /* LPlivePlayingTalkView.m */; };
+		06387B581F8CBDCB00BB68F0 /* AlivcLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06387B561F8CBDCB00BB68F0 /* AlivcLiveViewController.xib */; };
+		06387B591F8CBDCB00BB68F0 /* AlivcLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06387B571F8CBDCB00BB68F0 /* AlivcLiveViewController.m */; };
+		06387B5E1F8CD89000BB68F0 /* LPloginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06387B5C1F8CD89000BB68F0 /* LPloginVC.m */; };
+		06387B5F1F8CD89000BB68F0 /* LPloginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06387B5D1F8CD89000BB68F0 /* LPloginVC.xib */; };
+		063AD4A61F8DBB3B0046DE5B /* SHSelLockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063AD4A31F8DBB3A0046DE5B /* SHSelLockCell.xib */; };
+		063AD4A71F8DBB3B0046DE5B /* SHSelLockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AD4A51F8DBB3B0046DE5B /* SHSelLockCell.m */; };
+		063AD4AD1F8DCE650046DE5B /* LPuserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AD4AC1F8DCE650046DE5B /* LPuserModel.m */; };
+		063AD4B11F8E174E0046DE5B /* LPbeginPlayingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AD4AF1F8E174E0046DE5B /* LPbeginPlayingVC.m */; };
+		063AD4B21F8E174E0046DE5B /* LPbeginPlayingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063AD4B01F8E174E0046DE5B /* LPbeginPlayingVC.xib */; };
+		063AD4B51F8E2EB90046DE5B /* SCSelfInformationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AD4B41F8E2EB90046DE5B /* SCSelfInformationVC.m */; };
+		064006671F8EFB8C00E9AB07 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 064006601F8EFB8C00E9AB07 /* RadioButton-Selected.png */; };
+		064006681F8EFB8C00E9AB07 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 064006611F8EFB8C00E9AB07 /* RadioButton-Unselected.png */; };
+		064006691F8EFB8C00E9AB07 /* ZYRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 064006641F8EFB8C00E9AB07 /* ZYRadioButton.m */; };
+		0640066A1F8EFB8C00E9AB07 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 064006661F8EFB8C00E9AB07 /* UIImage+ImageEffects.m */; };
+		06C210931F8B7FB40051BB68 /* ZYHCommonService.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210921F8B7FB40051BB68 /* ZYHCommonService.m */; };
+		06C210B61F8B806A0051BB68 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210971F8B806A0051BB68 /* NSObject+SBJson.m */; };
+		06C210B71F8B806A0051BB68 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C2109A1F8B806A0051BB68 /* SBJsonParser.m */; };
+		06C210B81F8B806A0051BB68 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C2109C1F8B806A0051BB68 /* SBJsonStreamParser.m */; };
+		06C210B91F8B806A0051BB68 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C2109E1F8B806A0051BB68 /* SBJsonStreamParserAccumulator.m */; };
+		06C210BA1F8B806A0051BB68 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210A01F8B806A0051BB68 /* SBJsonStreamParserAdapter.m */; };
+		06C210BB1F8B806A0051BB68 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210A21F8B806A0051BB68 /* SBJsonStreamParserState.m */; };
+		06C210BC1F8B806A0051BB68 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210A41F8B806A0051BB68 /* SBJsonStreamWriter.m */; };
+		06C210BD1F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210A61F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.m */; };
+		06C210BE1F8B806A0051BB68 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210A81F8B806A0051BB68 /* SBJsonStreamWriterState.m */; };
+		06C210BF1F8B806A0051BB68 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210AA1F8B806A0051BB68 /* SBJsonTokeniser.m */; };
+		06C210C01F8B806A0051BB68 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210AC1F8B806A0051BB68 /* SBJsonUTF8Stream.m */; };
+		06C210C11F8B806A0051BB68 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210AE1F8B806A0051BB68 /* SBJsonWriter.m */; };
+		06C210C21F8B806A0051BB68 /* license in Resources */ = {isa = PBXBuildFile; fileRef = 06C210B01F8B806A0051BB68 /* license */; };
+		06C210C31F8B806A0051BB68 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 06C210B11F8B806A0051BB68 /* README.markdown */; };
+		06C210C41F8B806A0051BB68 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210B51F8B806A0051BB68 /* UIView+Toast.m */; };
+		1435088E3038A8214E3D847F /* libPods-AlivcLiveVideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A070AD2A7A709332343E516B /* libPods-AlivcLiveVideoDemo.a */; };
+		6C52D7D51EDEDDC2001ACEF9 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C52D7D41EDEDDC2001ACEF9 /* VideoToolbox.framework */; };
+		6C52D7DE1EDEE330001ACEF9 /* AlivcLiveVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C52D7DD1EDEE330001ACEF9 /* AlivcLiveVideo.framework */; };
+		6CED4BA41D0E8C0D004FCA03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED4BA31D0E8C0D004FCA03 /* main.m */; };
+		6CED4BA71D0E8C0D004FCA03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED4BA61D0E8C0D004FCA03 /* AppDelegate.m */; };
+		6CED4BAA1D0E8C0D004FCA03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED4BA91D0E8C0D004FCA03 /* ViewController.m */; };
+		6CED4BAD1D0E8C0D004FCA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CED4BAB1D0E8C0D004FCA03 /* Main.storyboard */; };
+		6CED4BAF1D0E8C0D004FCA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CED4BAE1D0E8C0D004FCA03 /* Assets.xcassets */; };
+		6CED4BB21D0E8C0D004FCA03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CED4BB01D0E8C0D004FCA03 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6CED4BB91D0E8C0D004FCA03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CED4B971D0E8C0D004FCA03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CED4B9E1D0E8C0D004FCA03;
+			remoteInfo = AlivcLiveVideoDemo;
+		};
+		6CED4BC41D0E8C0D004FCA03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CED4B971D0E8C0D004FCA03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CED4B9E1D0E8C0D004FCA03;
+			remoteInfo = AlivcLiveVideoDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06387B441F8C77BB00BB68F0 /* NMGlobaDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMGlobaDefine.h; sourceTree = "<group>"; };
+		06387B4C1F8CAFD700BB68F0 /* LPlivePlayingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPlivePlayingVC.h; sourceTree = "<group>"; };
+		06387B4D1F8CAFD700BB68F0 /* LPlivePlayingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPlivePlayingVC.m; sourceTree = "<group>"; };
+		06387B4F1F8CB01000BB68F0 /* LPlivePlayingControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPlivePlayingControlView.h; sourceTree = "<group>"; };
+		06387B501F8CB01000BB68F0 /* LPlivePlayingControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPlivePlayingControlView.m; sourceTree = "<group>"; };
+		06387B521F8CB02F00BB68F0 /* LPlivePlayingTalkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPlivePlayingTalkView.h; sourceTree = "<group>"; };
+		06387B531F8CB02F00BB68F0 /* LPlivePlayingTalkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPlivePlayingTalkView.m; sourceTree = "<group>"; };
+		06387B551F8CBDCB00BB68F0 /* AlivcLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlivcLiveViewController.h; sourceTree = "<group>"; };
+		06387B561F8CBDCB00BB68F0 /* AlivcLiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlivcLiveViewController.xib; sourceTree = "<group>"; };
+		06387B571F8CBDCB00BB68F0 /* AlivcLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlivcLiveViewController.m; sourceTree = "<group>"; };
+		06387B5B1F8CD89000BB68F0 /* LPloginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPloginVC.h; sourceTree = "<group>"; };
+		06387B5C1F8CD89000BB68F0 /* LPloginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPloginVC.m; sourceTree = "<group>"; };
+		06387B5D1F8CD89000BB68F0 /* LPloginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LPloginVC.xib; sourceTree = "<group>"; };
+		063AD4A31F8DBB3A0046DE5B /* SHSelLockCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSelLockCell.xib; sourceTree = "<group>"; };
+		063AD4A41F8DBB3B0046DE5B /* SHSelLockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSelLockCell.h; sourceTree = "<group>"; };
+		063AD4A51F8DBB3B0046DE5B /* SHSelLockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSelLockCell.m; sourceTree = "<group>"; };
+		063AD4AB1F8DCE650046DE5B /* LPuserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPuserModel.h; sourceTree = "<group>"; };
+		063AD4AC1F8DCE650046DE5B /* LPuserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPuserModel.m; sourceTree = "<group>"; };
+		063AD4AE1F8E174E0046DE5B /* LPbeginPlayingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPbeginPlayingVC.h; sourceTree = "<group>"; };
+		063AD4AF1F8E174E0046DE5B /* LPbeginPlayingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPbeginPlayingVC.m; sourceTree = "<group>"; };
+		063AD4B01F8E174E0046DE5B /* LPbeginPlayingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LPbeginPlayingVC.xib; sourceTree = "<group>"; };
+		063AD4B31F8E2EB90046DE5B /* SCSelfInformationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSelfInformationVC.h; sourceTree = "<group>"; };
+		063AD4B41F8E2EB90046DE5B /* SCSelfInformationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSelfInformationVC.m; sourceTree = "<group>"; };
+		064006601F8EFB8C00E9AB07 /* RadioButton-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Selected.png"; sourceTree = "<group>"; };
+		064006611F8EFB8C00E9AB07 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
+		064006621F8EFB8C00E9AB07 /* RadioButtonDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RadioButtonDemo-Prefix.pch"; sourceTree = "<group>"; };
+		064006631F8EFB8C00E9AB07 /* ZYRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYRadioButton.h; sourceTree = "<group>"; };
+		064006641F8EFB8C00E9AB07 /* ZYRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYRadioButton.m; sourceTree = "<group>"; };
+		064006651F8EFB8C00E9AB07 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		064006661F8EFB8C00E9AB07 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		06C210911F8B7FB40051BB68 /* ZYHCommonService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHCommonService.h; sourceTree = "<group>"; };
+		06C210921F8B7FB40051BB68 /* ZYHCommonService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHCommonService.m; sourceTree = "<group>"; };
+		06C210961F8B806A0051BB68 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		06C210971F8B806A0051BB68 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		06C210981F8B806A0051BB68 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		06C210991F8B806A0051BB68 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		06C2109A1F8B806A0051BB68 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		06C2109B1F8B806A0051BB68 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		06C2109C1F8B806A0051BB68 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		06C2109D1F8B806A0051BB68 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		06C2109E1F8B806A0051BB68 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		06C2109F1F8B806A0051BB68 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		06C210A01F8B806A0051BB68 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		06C210A11F8B806A0051BB68 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		06C210A21F8B806A0051BB68 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		06C210A31F8B806A0051BB68 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		06C210A41F8B806A0051BB68 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		06C210A51F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		06C210A61F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		06C210A71F8B806A0051BB68 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		06C210A81F8B806A0051BB68 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		06C210A91F8B806A0051BB68 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		06C210AA1F8B806A0051BB68 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		06C210AB1F8B806A0051BB68 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		06C210AC1F8B806A0051BB68 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		06C210AD1F8B806A0051BB68 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		06C210AE1F8B806A0051BB68 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		06C210B01F8B806A0051BB68 /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		06C210B11F8B806A0051BB68 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		06C210B41F8B806A0051BB68 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		06C210B51F8B806A0051BB68 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		57E14BA0D70D0199DDF864CD /* Pods-AlivcLiveVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlivcLiveVideoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlivcLiveVideoDemo/Pods-AlivcLiveVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6C52D7D41EDEDDC2001ACEF9 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		6C52D7DD1EDEE330001ACEF9 /* AlivcLiveVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlivcLiveVideo.framework; sourceTree = "<group>"; };
+		6CED4B9F1D0E8C0D004FCA03 /* AlivcLiveVideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlivcLiveVideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CED4BA31D0E8C0D004FCA03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6CED4BA51D0E8C0D004FCA03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6CED4BA61D0E8C0D004FCA03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6CED4BA81D0E8C0D004FCA03 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6CED4BA91D0E8C0D004FCA03 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6CED4BAC1D0E8C0D004FCA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6CED4BAE1D0E8C0D004FCA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6CED4BB11D0E8C0D004FCA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6CED4BB31D0E8C0D004FCA03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CED4BB81D0E8C0D004FCA03 /* AlivcLiveVideoDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlivcLiveVideoDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CED4BC31D0E8C0D004FCA03 /* AlivcLiveVideoDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlivcLiveVideoDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CED4BDD1D0E8CC3004FCA03 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		6E20179A45C83DDAC0BA6AAC /* Pods-AlivcLiveVideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlivcLiveVideoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlivcLiveVideoDemo/Pods-AlivcLiveVideoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A070AD2A7A709332343E516B /* libPods-AlivcLiveVideoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlivcLiveVideoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CED4B9C1D0E8C0D004FCA03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C52D7DE1EDEE330001ACEF9 /* AlivcLiveVideo.framework in Frameworks */,
+				6C52D7D51EDEDDC2001ACEF9 /* VideoToolbox.framework in Frameworks */,
+				1435088E3038A8214E3D847F /* libPods-AlivcLiveVideoDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CED4BB51D0E8C0D004FCA03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CED4BC01D0E8C0D004FCA03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06387B451F8C7F6500BB68F0 /* AlivcLivePlay */ = {
+			isa = PBXGroup;
+			children = (
+				06387B4C1F8CAFD700BB68F0 /* LPlivePlayingVC.h */,
+				06387B4D1F8CAFD700BB68F0 /* LPlivePlayingVC.m */,
+				06387B551F8CBDCB00BB68F0 /* AlivcLiveViewController.h */,
+				06387B571F8CBDCB00BB68F0 /* AlivcLiveViewController.m */,
+				06387B561F8CBDCB00BB68F0 /* AlivcLiveViewController.xib */,
+				063AD4AA1F8DCE270046DE5B /* Model */,
+				06387B491F8C7F6500BB68F0 /* Views */,
+			);
+			path = AlivcLivePlay;
+			sourceTree = "<group>";
+		};
+		06387B491F8C7F6500BB68F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06387B4F1F8CB01000BB68F0 /* LPlivePlayingControlView.h */,
+				06387B501F8CB01000BB68F0 /* LPlivePlayingControlView.m */,
+				06387B521F8CB02F00BB68F0 /* LPlivePlayingTalkView.h */,
+				06387B531F8CB02F00BB68F0 /* LPlivePlayingTalkView.m */,
+				063AD4A41F8DBB3B0046DE5B /* SHSelLockCell.h */,
+				063AD4A51F8DBB3B0046DE5B /* SHSelLockCell.m */,
+				063AD4A31F8DBB3A0046DE5B /* SHSelLockCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06387B5A1F8CD89000BB68F0 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				06387B5B1F8CD89000BB68F0 /* LPloginVC.h */,
+				06387B5C1F8CD89000BB68F0 /* LPloginVC.m */,
+				06387B5D1F8CD89000BB68F0 /* LPloginVC.xib */,
+				063AD4AE1F8E174E0046DE5B /* LPbeginPlayingVC.h */,
+				063AD4AF1F8E174E0046DE5B /* LPbeginPlayingVC.m */,
+				063AD4B01F8E174E0046DE5B /* LPbeginPlayingVC.xib */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		063AD4AA1F8DCE270046DE5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				063AD4AB1F8DCE650046DE5B /* LPuserModel.h */,
+				063AD4AC1F8DCE650046DE5B /* LPuserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0640065E1F8EFB8C00E9AB07 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0640065F1F8EFB8C00E9AB07 /* RadioButton */,
+				064006651F8EFB8C00E9AB07 /* UIImage+ImageEffects.h */,
+				064006661F8EFB8C00E9AB07 /* UIImage+ImageEffects.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0640065F1F8EFB8C00E9AB07 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				064006601F8EFB8C00E9AB07 /* RadioButton-Selected.png */,
+				064006611F8EFB8C00E9AB07 /* RadioButton-Unselected.png */,
+				064006621F8EFB8C00E9AB07 /* RadioButtonDemo-Prefix.pch */,
+				064006631F8EFB8C00E9AB07 /* ZYRadioButton.h */,
+				064006641F8EFB8C00E9AB07 /* ZYRadioButton.m */,
+			);
+			path = RadioButton;
+			sourceTree = "<group>";
+		};
+		06C210901F8B7FB40051BB68 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				063AD4B31F8E2EB90046DE5B /* SCSelfInformationVC.h */,
+				063AD4B41F8E2EB90046DE5B /* SCSelfInformationVC.m */,
+				0640065E1F8EFB8C00E9AB07 /* Common */,
+				06387B5A1F8CD89000BB68F0 /* LogIn */,
+				06387B451F8C7F6500BB68F0 /* AlivcLivePlay */,
+				06C210941F8B806A0051BB68 /* lib */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		06C210941F8B806A0051BB68 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				06C210911F8B7FB40051BB68 /* ZYHCommonService.h */,
+				06C210921F8B7FB40051BB68 /* ZYHCommonService.m */,
+				06C210951F8B806A0051BB68 /* SBJson */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		06C210951F8B806A0051BB68 /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				06C210961F8B806A0051BB68 /* NSObject+SBJson.h */,
+				06C210971F8B806A0051BB68 /* NSObject+SBJson.m */,
+				06C210981F8B806A0051BB68 /* SBJson.h */,
+				06C210991F8B806A0051BB68 /* SBJsonParser.h */,
+				06C2109A1F8B806A0051BB68 /* SBJsonParser.m */,
+				06C2109B1F8B806A0051BB68 /* SBJsonStreamParser.h */,
+				06C2109C1F8B806A0051BB68 /* SBJsonStreamParser.m */,
+				06C2109D1F8B806A0051BB68 /* SBJsonStreamParserAccumulator.h */,
+				06C2109E1F8B806A0051BB68 /* SBJsonStreamParserAccumulator.m */,
+				06C2109F1F8B806A0051BB68 /* SBJsonStreamParserAdapter.h */,
+				06C210A01F8B806A0051BB68 /* SBJsonStreamParserAdapter.m */,
+				06C210A11F8B806A0051BB68 /* SBJsonStreamParserState.h */,
+				06C210A21F8B806A0051BB68 /* SBJsonStreamParserState.m */,
+				06C210A31F8B806A0051BB68 /* SBJsonStreamWriter.h */,
+				06C210A41F8B806A0051BB68 /* SBJsonStreamWriter.m */,
+				06C210A51F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.h */,
+				06C210A61F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.m */,
+				06C210A71F8B806A0051BB68 /* SBJsonStreamWriterState.h */,
+				06C210A81F8B806A0051BB68 /* SBJsonStreamWriterState.m */,
+				06C210A91F8B806A0051BB68 /* SBJsonTokeniser.h */,
+				06C210AA1F8B806A0051BB68 /* SBJsonTokeniser.m */,
+				06C210AB1F8B806A0051BB68 /* SBJsonUTF8Stream.h */,
+				06C210AC1F8B806A0051BB68 /* SBJsonUTF8Stream.m */,
+				06C210AD1F8B806A0051BB68 /* SBJsonWriter.h */,
+				06C210AE1F8B806A0051BB68 /* SBJsonWriter.m */,
+				06C210AF1F8B806A0051BB68 /* Toast */,
+			);
+			path = SBJson;
+			sourceTree = "<group>";
+		};
+		06C210AF1F8B806A0051BB68 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				06C210B01F8B806A0051BB68 /* license */,
+				06C210B11F8B806A0051BB68 /* README.markdown */,
+				06C210B21F8B806A0051BB68 /* Toast */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		06C210B21F8B806A0051BB68 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				06C210B31F8B806A0051BB68 /* Toast */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		06C210B31F8B806A0051BB68 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				06C210B41F8B806A0051BB68 /* UIView+Toast.h */,
+				06C210B51F8B806A0051BB68 /* UIView+Toast.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		6C52D7D31EDEDDC2001ACEF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C52D7D41EDEDDC2001ACEF9 /* VideoToolbox.framework */,
+				A070AD2A7A709332343E516B /* libPods-AlivcLiveVideoDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CED4B961D0E8C0D004FCA03 = {
+			isa = PBXGroup;
+			children = (
+				06C210901F8B7FB40051BB68 /* Class */,
+				6CED4BA11D0E8C0D004FCA03 /* AlivcLiveVideoDemo */,
+				6CED4BA01D0E8C0D004FCA03 /* Products */,
+				6C52D7D31EDEDDC2001ACEF9 /* Frameworks */,
+				706D71C2FB48D62B0099FC2F /* Pods */,
+				6C52D7DD1EDEE330001ACEF9 /* AlivcLiveVideo.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		6CED4BA01D0E8C0D004FCA03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CED4B9F1D0E8C0D004FCA03 /* AlivcLiveVideoDemo.app */,
+				6CED4BB81D0E8C0D004FCA03 /* AlivcLiveVideoDemoTests.xctest */,
+				6CED4BC31D0E8C0D004FCA03 /* AlivcLiveVideoDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CED4BA11D0E8C0D004FCA03 /* AlivcLiveVideoDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6CED4BA51D0E8C0D004FCA03 /* AppDelegate.h */,
+				6CED4BA61D0E8C0D004FCA03 /* AppDelegate.m */,
+				6CED4BA81D0E8C0D004FCA03 /* ViewController.h */,
+				6CED4BA91D0E8C0D004FCA03 /* ViewController.m */,
+				06387B441F8C77BB00BB68F0 /* NMGlobaDefine.h */,
+				6CED4BAB1D0E8C0D004FCA03 /* Main.storyboard */,
+				6CED4BAE1D0E8C0D004FCA03 /* Assets.xcassets */,
+				6CED4BB01D0E8C0D004FCA03 /* LaunchScreen.storyboard */,
+				6CED4BB31D0E8C0D004FCA03 /* Info.plist */,
+				6CED4BA21D0E8C0D004FCA03 /* Supporting Files */,
+			);
+			path = AlivcLiveVideoDemo;
+			sourceTree = "<group>";
+		};
+		6CED4BA21D0E8C0D004FCA03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CED4BA31D0E8C0D004FCA03 /* main.m */,
+				6CED4BDD1D0E8CC3004FCA03 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		706D71C2FB48D62B0099FC2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57E14BA0D70D0199DDF864CD /* Pods-AlivcLiveVideoDemo.debug.xcconfig */,
+				6E20179A45C83DDAC0BA6AAC /* Pods-AlivcLiveVideoDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CED4B9E1D0E8C0D004FCA03 /* AlivcLiveVideoDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CED4BCC1D0E8C0D004FCA03 /* Build configuration list for PBXNativeTarget "AlivcLiveVideoDemo" */;
+			buildPhases = (
+				1ACE326EAC1913A38587991C /* [CP] Check Pods Manifest.lock */,
+				6CED4B9B1D0E8C0D004FCA03 /* Sources */,
+				6CED4B9C1D0E8C0D004FCA03 /* Frameworks */,
+				6CED4B9D1D0E8C0D004FCA03 /* Resources */,
+				91DC8371A230550F0EEA5F5C /* [CP] Embed Pods Frameworks */,
+				E2651849BE7EB71627D13C84 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlivcLiveVideoDemo;
+			productName = AlivcLiveVideoDemo;
+			productReference = 6CED4B9F1D0E8C0D004FCA03 /* AlivcLiveVideoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6CED4BB71D0E8C0D004FCA03 /* AlivcLiveVideoDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CED4BCF1D0E8C0D004FCA03 /* Build configuration list for PBXNativeTarget "AlivcLiveVideoDemoTests" */;
+			buildPhases = (
+				6CED4BB41D0E8C0D004FCA03 /* Sources */,
+				6CED4BB51D0E8C0D004FCA03 /* Frameworks */,
+				6CED4BB61D0E8C0D004FCA03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CED4BBA1D0E8C0D004FCA03 /* PBXTargetDependency */,
+			);
+			name = AlivcLiveVideoDemoTests;
+			productName = AlivcLiveVideoDemoTests;
+			productReference = 6CED4BB81D0E8C0D004FCA03 /* AlivcLiveVideoDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6CED4BC21D0E8C0D004FCA03 /* AlivcLiveVideoDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CED4BD21D0E8C0D004FCA03 /* Build configuration list for PBXNativeTarget "AlivcLiveVideoDemoUITests" */;
+			buildPhases = (
+				6CED4BBF1D0E8C0D004FCA03 /* Sources */,
+				6CED4BC01D0E8C0D004FCA03 /* Frameworks */,
+				6CED4BC11D0E8C0D004FCA03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CED4BC51D0E8C0D004FCA03 /* PBXTargetDependency */,
+			);
+			name = AlivcLiveVideoDemoUITests;
+			productName = AlivcLiveVideoDemoUITests;
+			productReference = 6CED4BC31D0E8C0D004FCA03 /* AlivcLiveVideoDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CED4B971D0E8C0D004FCA03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Alibaba Video Cloud";
+				TargetAttributes = {
+					6CED4B9E1D0E8C0D004FCA03 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4N6RJ6G5D8;
+						ProvisioningStyle = Automatic;
+					};
+					6CED4BB71D0E8C0D004FCA03 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 6CED4B9E1D0E8C0D004FCA03;
+					};
+					6CED4BC21D0E8C0D004FCA03 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 6CED4B9E1D0E8C0D004FCA03;
+					};
+				};
+			};
+			buildConfigurationList = 6CED4B9A1D0E8C0D004FCA03 /* Build configuration list for PBXProject "AlivcLiveVideoDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 6CED4B961D0E8C0D004FCA03;
+			productRefGroup = 6CED4BA01D0E8C0D004FCA03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CED4B9E1D0E8C0D004FCA03 /* AlivcLiveVideoDemo */,
+				6CED4BB71D0E8C0D004FCA03 /* AlivcLiveVideoDemoTests */,
+				6CED4BC21D0E8C0D004FCA03 /* AlivcLiveVideoDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CED4B9D1D0E8C0D004FCA03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C210C21F8B806A0051BB68 /* license in Resources */,
+				063AD4B21F8E174E0046DE5B /* LPbeginPlayingVC.xib in Resources */,
+				6CED4BB21D0E8C0D004FCA03 /* LaunchScreen.storyboard in Resources */,
+				064006681F8EFB8C00E9AB07 /* RadioButton-Unselected.png in Resources */,
+				063AD4A61F8DBB3B0046DE5B /* SHSelLockCell.xib in Resources */,
+				06C210C31F8B806A0051BB68 /* README.markdown in Resources */,
+				6CED4BAF1D0E8C0D004FCA03 /* Assets.xcassets in Resources */,
+				06387B5F1F8CD89000BB68F0 /* LPloginVC.xib in Resources */,
+				06387B581F8CBDCB00BB68F0 /* AlivcLiveViewController.xib in Resources */,
+				064006671F8EFB8C00E9AB07 /* RadioButton-Selected.png in Resources */,
+				6CED4BAD1D0E8C0D004FCA03 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CED4BB61D0E8C0D004FCA03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CED4BC11D0E8C0D004FCA03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1ACE326EAC1913A38587991C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlivcLiveVideoDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91DC8371A230550F0EEA5F5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlivcLiveVideoDemo/Pods-AlivcLiveVideoDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2651849BE7EB71627D13C84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AlivcLiveVideoDemo/Pods-AlivcLiveVideoDemo-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlivcLiveVideoDemo/Pods-AlivcLiveVideoDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CED4B9B1D0E8C0D004FCA03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C210C41F8B806A0051BB68 /* UIView+Toast.m in Sources */,
+				06C210BB1F8B806A0051BB68 /* SBJsonStreamParserState.m in Sources */,
+				06C210B71F8B806A0051BB68 /* SBJsonParser.m in Sources */,
+				064006691F8EFB8C00E9AB07 /* ZYRadioButton.m in Sources */,
+				06C210BA1F8B806A0051BB68 /* SBJsonStreamParserAdapter.m in Sources */,
+				6CED4BAA1D0E8C0D004FCA03 /* ViewController.m in Sources */,
+				06C210B91F8B806A0051BB68 /* SBJsonStreamParserAccumulator.m in Sources */,
+				06387B5E1F8CD89000BB68F0 /* LPloginVC.m in Sources */,
+				063AD4B11F8E174E0046DE5B /* LPbeginPlayingVC.m in Sources */,
+				6CED4BA71D0E8C0D004FCA03 /* AppDelegate.m in Sources */,
+				06C210BE1F8B806A0051BB68 /* SBJsonStreamWriterState.m in Sources */,
+				06387B541F8CB02F00BB68F0 /* LPlivePlayingTalkView.m in Sources */,
+				06C210BC1F8B806A0051BB68 /* SBJsonStreamWriter.m in Sources */,
+				06C210BD1F8B806A0051BB68 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				06C210931F8B7FB40051BB68 /* ZYHCommonService.m in Sources */,
+				063AD4A71F8DBB3B0046DE5B /* SHSelLockCell.m in Sources */,
+				0640066A1F8EFB8C00E9AB07 /* UIImage+ImageEffects.m in Sources */,
+				06C210BF1F8B806A0051BB68 /* SBJsonTokeniser.m in Sources */,
+				06387B591F8CBDCB00BB68F0 /* AlivcLiveViewController.m in Sources */,
+				06387B4E1F8CAFD700BB68F0 /* LPlivePlayingVC.m in Sources */,
+				06C210B61F8B806A0051BB68 /* NSObject+SBJson.m in Sources */,
+				6CED4BA41D0E8C0D004FCA03 /* main.m in Sources */,
+				06C210B81F8B806A0051BB68 /* SBJsonStreamParser.m in Sources */,
+				063AD4AD1F8DCE650046DE5B /* LPuserModel.m in Sources */,
+				06387B511F8CB01000BB68F0 /* LPlivePlayingControlView.m in Sources */,
+				06C210C01F8B806A0051BB68 /* SBJsonUTF8Stream.m in Sources */,
+				06C210C11F8B806A0051BB68 /* SBJsonWriter.m in Sources */,
+				063AD4B51F8E2EB90046DE5B /* SCSelfInformationVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CED4BB41D0E8C0D004FCA03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CED4BBF1D0E8C0D004FCA03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CED4BBA1D0E8C0D004FCA03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CED4B9E1D0E8C0D004FCA03 /* AlivcLiveVideoDemo */;
+			targetProxy = 6CED4BB91D0E8C0D004FCA03 /* PBXContainerItemProxy */;
+		};
+		6CED4BC51D0E8C0D004FCA03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CED4B9E1D0E8C0D004FCA03 /* AlivcLiveVideoDemo */;
+			targetProxy = 6CED4BC41D0E8C0D004FCA03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6CED4BAB1D0E8C0D004FCA03 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CED4BAC1D0E8C0D004FCA03 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6CED4BB01D0E8C0D004FCA03 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CED4BB11D0E8C0D004FCA03 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6CED4BCA1D0E8C0D004FCA03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6CED4BCB1D0E8C0D004FCA03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6CED4BCD1D0E8C0D004FCA03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E14BA0D70D0199DDF864CD /* Pods-AlivcLiveVideoDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4N6RJ6G5D8;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AlivcLiveVideoDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = AlivcLiveVideoDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.alivcLIveDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		6CED4BCE1D0E8C0D004FCA03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E20179A45C83DDAC0BA6AAC /* Pods-AlivcLiveVideoDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4N6RJ6G5D8;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AlivcLiveVideoDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = AlivcLiveVideoDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.alivcLIveDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		6CED4BD01D0E8C0D004FCA03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AlivcLiveVideoDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlivcLiveVideoDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlivcLiveVideoDemo.app/AlivcLiveVideoDemo";
+			};
+			name = Debug;
+		};
+		6CED4BD11D0E8C0D004FCA03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AlivcLiveVideoDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlivcLiveVideoDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlivcLiveVideoDemo.app/AlivcLiveVideoDemo";
+			};
+			name = Release;
+		};
+		6CED4BD31D0E8C0D004FCA03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AlivcLiveVideoDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlivcLiveVideoDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AlivcLiveVideoDemo;
+			};
+			name = Debug;
+		};
+		6CED4BD41D0E8C0D004FCA03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AlivcLiveVideoDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlivcLiveVideoDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AlivcLiveVideoDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CED4B9A1D0E8C0D004FCA03 /* Build configuration list for PBXProject "AlivcLiveVideoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CED4BCA1D0E8C0D004FCA03 /* Debug */,
+				6CED4BCB1D0E8C0D004FCA03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CED4BCC1D0E8C0D004FCA03 /* Build configuration list for PBXNativeTarget "AlivcLiveVideoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CED4BCD1D0E8C0D004FCA03 /* Debug */,
+				6CED4BCE1D0E8C0D004FCA03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CED4BCF1D0E8C0D004FCA03 /* Build configuration list for PBXNativeTarget "AlivcLiveVideoDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CED4BD01D0E8C0D004FCA03 /* Debug */,
+				6CED4BD11D0E8C0D004FCA03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CED4BD21D0E8C0D004FCA03 /* Build configuration list for PBXNativeTarget "AlivcLiveVideoDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CED4BD31D0E8C0D004FCA03 /* Debug */,
+				6CED4BD41D0E8C0D004FCA03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CED4B971D0E8C0D004FCA03 /* Project object */;
+}

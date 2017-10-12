@@ -354,6 +354,9 @@ static NSInteger rIndex = 0; //已用数字包存
     if (string.length == 0) {
         return YES;
     }
+    if ([string containsString:@"null"]) {
+        return YES;
+    }
     
     if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
         return YES;
@@ -416,8 +419,15 @@ static NSInteger rIndex = 0; //已用数字包存
             NSLog(@"\n获取失败..%@\n",error.localizedDescription);
             completion(nil,error);
         } else {
-            NSLog(@"\n获取成功..%@\n",responseObject);
-            completion(responseObject,nil);
+            NSDictionary * dicResult = [NSDictionary dictionaryWithDictionary:responseObject];
+            if([dicResult.allKeys containsObject:@"errmsg"]){
+                NSLog(@"\n获取失败..%@\n",dicResult[@"errmsg"]);
+                NSError * errorGet =[[NSError alloc]initWithDomain:dicResult[@"errmsg"] code:[dicResult[@"errcode"] integerValue] userInfo:dicResult];
+                completion(nil,errorGet);
+            }else{
+                NSLog(@"\n获取成功..%@\n",responseObject);
+                completion(responseObject,nil);
+            }
         }
     }];
     

@@ -20,7 +20,10 @@
 #import "LPlivePlayingControlView.h"
 
 @interface AlivcLiveViewController ()<AlivcLiveSessionDelegate,LPlivePlayingControlViewDelegate>{
+    BOOL isLight;//是否开启闪光灯；
+    BOOL isBeauty;//是否美颜；
     BOOL isMutePush;//是否静音推流；
+    BOOL isPushing;//是否正在推流；
     NSString * detailStr;//推流详情
     LPlivePlayingControlView * controlView;
     CALayer * orangeLayer;
@@ -48,6 +51,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMore;
 @property (weak, nonatomic) IBOutlet UIImageView *imgConnect;
 @property (weak, nonatomic) IBOutlet UILabel *labBegin;
+@property (weak, nonatomic) IBOutlet UIImageView *imgUser;
 
 // 调试
 @property (nonatomic, strong) CTCallCenter *callCenter;
@@ -68,6 +72,8 @@
     return self;
 }
 
+// stream = "rtmp://video-center.alivecdn.com/stlive/10001?vhost=live.ymz008.com&auth_key=260014-0-0-44cbc11f42a42c264157aa68dc1f553b";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -83,6 +89,7 @@
     [self createSession];
     
     _btnCutOut.hidden = YES;
+    isPushing = NO;
     _imgConnect.hidden = YES;
     //开启和监听 设备旋转的通知（不开启的话，设备方向一直是UIInterfaceOrientationUnknown）
     if (![UIDevice currentDevice].generatesDeviceOrientationNotifications) {
@@ -91,6 +98,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleDeviceOrientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     NSLog(@"版本号:%@", [AlivcLiveSession alivcLiveVideoVersion]);
+    
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dicUserInfo = [userDefaults objectForKey:@"userInfo"];
+    NSError * transforError ;
+    LPuserModel * userInfo = [LPuserModel arrayOfModelsFromDictionaries:@[dicUserInfo] error:&transforError].lastObject;
+    [_imgUser sd_setImageWithURL:[NSURL URLWithString:userInfo.faceUrl] placeholderImage:[UIImage imageNamed:@"userDef"]];
 }
 
 #pragma mark - 推流Session 创建 销毁
@@ -160,6 +173,7 @@
         alertView.delegate = self;
         [alertView show];
     });
+    isPushing = NO;
     [self actionBtnChangeStatus:_btnCutOut];
     [self actionStopTimer];
     NSLog(@"liveSession Error : %@", error);
@@ -182,6 +196,7 @@
     if (!_pushTimer) {
         [self startDebug];
     }
+    isPushing = YES;
     NSLog(@"推流  connect success!");
 }
 
@@ -192,6 +207,7 @@
         
         [alertView show];
     });
+    isPushing = NO;
     [self actionBtnChangeStatus:_btnCutOut];
     [self actionStopTimer];
     NSLog(@"重连超时");
@@ -486,29 +502,43 @@
 
 
 - (void)buttonCloseClick:(id)sender {
-    [self destroySession];
-    [_pushTimer invalidate];
-    _pushTimer = nil;
-    NSArray * arr =self.navigationController.viewControllers;
-    BOOL isHave = 0;
-    for (UIViewController * vc in arr) {
-        if ([vc isKindOfClass:[LPbeginPlayingVC class]]) {
-            [self.navigationController popViewControllerAnimated:YES];
-            isHave = YES;
-        }
-    }
-    if (!isHave && arr.count) {
-        LPbeginPlayingVC *login = [[LPbeginPlayingVC alloc] init];
-        UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
-        //    self.window.rootViewController = nav;
-        [[UIApplication sharedApplication].keyWindow setRootViewController:nav];
-    }else{
-        if (!arr.count) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }
+    __weak typeof(self) weakSelf = self;
+    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:nil message:@"\n确定要退出当前直播吗？\n"];
+    [alert bk_addButtonWithTitle:@"确定"
+                         handler:^{
+                             [weakSelf destroySession];
+                             [_pushTimer invalidate];
+                             _pushTimer = nil;
+                             
+                             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];    appDelegate.allowRotation = NO;
+                             NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+                             [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+                             
+                             [weakSelf.navigationController popViewControllerAnimated:YES];
+                       }];
+    [alert bk_setCancelButtonWithTitle:@"取消"
+                               handler:^{
+                               }];
+    [alert show];
+//    BOOL isHave = 0;
+//    for (UIViewController * vc in arr) {
+//        if ([vc isKindOfClass:[LPbeginPlayingVC class]]) {
+//            [self.navigationController popViewControllerAnimated:YES];
+//            isHave = YES;
+//        }
+//    }
+//    if (!isHave && arr.count) {
+//        LPbeginPlayingVC *login = [[LPbeginPlayingVC alloc] init];
+//        UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
+//        //    self.window.rootViewController = nav;
+//        [[UIApplication sharedApplication].keyWindow setRootViewController:nav];
+//    }else{
+//        if (!arr.count) {
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        } else {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -530,26 +560,36 @@
 }
 
 - (void)skinButtonClick:(UIButton *)button {
-    button.selected = !button.isSelected;
-   // [self.skinSlider setHidden:!button.selected];
-    [self.liveSession setEnableSkin:button.isSelected];
+    isBeauty= !isBeauty;
+    [self.liveSession setEnableSkin:isBeauty];
 }
 
 - (void)skinSliderAction:(UISlider *)sender {
-    
     [self.liveSession alivcLiveVideoChangeSkinValue:sender.value];
-    
 }
 
 
 - (void)flashButtonClick:(UIButton *)button {
-    [self actionBtnChangeStatus:button];
-    self.liveSession.torchMode = button.isSelected ? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
+    if (_currentPosition == AVCaptureDevicePositionBack ) {
+        isLight = ! isLight;
+        self.liveSession.torchMode = isLight? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
+    }
 }
 
 - (void)muteButton:(UIButton *)sender {
-    [self actionBtnChangeStatus:sender];
-    self.liveSession.enableMute = sender.selected;
+    isMutePush = !isMutePush;
+    self.liveSession.enableMute = isMutePush;
+    if(isMutePush){
+        _imgConnect.image = [UIImage imageNamed:@"m_mute"];
+        _imgConnect.hidden = NO;
+    }else{
+        _imgConnect.hidden = YES;
+    }
+    if (!isPushing) {
+        _imgConnect.image = [UIImage imageNamed:@"m_connect"];
+        _imgConnect.hidden = NO;
+    }
+        
 }
 
 - (void)disconnectButtonClick:(UIButton *)sender {
@@ -571,7 +611,8 @@
     }
     if ([sender isEqual:_btnCutOut]) {
         _btnCutOut.hidden = sender.selected;
-        _imgConnect.hidden = sender.selected;;
+        _imgConnect.hidden = sender.selected;
+        _imgConnect.image =[UIImage imageNamed:@"m_connect"];
     }
 }
 

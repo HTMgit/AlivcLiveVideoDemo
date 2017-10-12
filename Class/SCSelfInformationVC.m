@@ -9,7 +9,8 @@
 
 
 //#import "SCReFindPwdVC.h"
-#import "UIColor+Util.h"
+#import "LPloginVC.h"
+
 #import "ZYRadioButton.h"
 
 #import "UIImage+ImageEffects.h"
@@ -31,15 +32,22 @@ static int num = 1;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"actionBack"] style:UIBarButtonItemStyleDone target:self action:@selector(actionUpdateUserInfo)];
 
     self.tableView.sectionHeaderHeight = 20;
-
-//    self.userInformation = [[GTSUserInformations alloc] init];
-    [self actionGetUserInformation];
+    
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dicUserInfo = [userDefaults objectForKey:@"userInfo"];
+    NSError * transforError ;
+    userInformation = [LPuserModel arrayOfModelsFromDictionaries:@[dicUserInfo] error:&transforError].lastObject;
+    
     //给表格添加一个尾部视图
-    // self.tableView.tableFooterView = [self creatFootView];
+     self.tableView.tableFooterView = [self creatFootView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if (!userInformation) {
+        [ZYHCommonService showMakeToastView:@"用户不存在"];
+        return;
+    }
     [self.tableView reloadData];
     self.tableView.backgroundColor = fRgbColor(250, 250, 250);
     num = 1;
@@ -59,20 +67,11 @@ static int num = 1;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    haveChangeUserSex=0;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-    case 0:
-        return 4;
-        break;
-
-    default:
-        return 1;
-        break;
-    }
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -105,18 +104,10 @@ static int num = 1;
             headimage.layer.cornerRadius = 15;
             headimage.contentMode=UIViewContentModeScaleAspectFill;
             headimage.layer.masksToBounds = YES;
-            headimage.layer.borderColor = BACKCOLOR.CGColor;
+            headimage.layer.borderColor = SYSTEMCOlOR.CGColor;
             headimage.layer.borderWidth = 0.5;
             
-            //
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *pictureName= @"UserPortrait.png";
-            NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:pictureName];
-            //从手机本地加载图片
-            UIImage *pushImage = [[UIImage alloc]initWithContentsOfFile:savedImagePath];
-            
-            [headimage sd_setImageWithURL:[NSURL URLWithString:self.userInformation.imageStr] placeholderImage:pushImage];
+            [headimage sd_setImageWithURL:[NSURL URLWithString:userInformation.faceUrl] placeholderImage:[UIImage imageNamed:@"userDef"]];
             UILabel *LabNil = (UILabel *)[cell viewWithTag:11003];
             LabNil.hidden = YES;
             break;
@@ -132,7 +123,7 @@ static int num = 1;
             LabName.font = [UIFont systemFontOfSize:13];
 
             UILabel *LabUserName = (UILabel *)[cell viewWithTag:11003];
-            NSString * name=self.userInformation.userName;
+            NSString * name=userInformation.nickname;
             if (name.length==0||[name isEqualToString:@"(null)"]) {
                 name=@"";
             }
@@ -145,30 +136,6 @@ static int num = 1;
             break;
         }
         case 2: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"UserFormCell"];
-            if (cell == nil) {
-                cell = [[NSBundle mainBundle] loadNibNamed:@"UserFormCell" owner:nil options:nil].lastObject;
-            }
-            UILabel *LabName = (UILabel *)[cell viewWithTag:11001];
-            LabName.text = @"手机号";
-            LabName.textColor = fRgbColor(79, 91, 28);
-            LabName.font = [UIFont systemFontOfSize:13];
-
-            UILabel *LabUserGSNumber = (UILabel *)[cell viewWithTag:11003];
-            // LabUserGSNumber.text = self.userInformation.userGSNumber;
-
-            NSString *tel = [[AVUser currentUser].mobilePhoneNumber stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-            LabUserGSNumber.text = tel;
-            LabUserGSNumber.textAlignment = NSTextAlignmentRight;
-            LabUserGSNumber.textColor = fRgbColor(128, 128, 128);
-            LabUserGSNumber.font = [UIFont systemFontOfSize:13];
-
-            UIImageView *headimage = (UIImageView *)[cell viewWithTag:11002];
-            headimage.hidden = YES;
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            break;
-        }
-        case 3: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"UserRadioCell"];
             if (cell == nil) {
                 cell = [[NSBundle mainBundle] loadNibNamed:@"UserRadioCell" owner:nil options:nil].lastObject;
@@ -180,9 +147,9 @@ static int num = 1;
             //定义单选按钮
             ZYRadioButton *RBMan = [[ZYRadioButton alloc] initWithGroupId:@"first group" index:0 size:CGSizeMake(48, 25)];
             ZYRadioButton *RBWoman = [[ZYRadioButton alloc] initWithGroupId:@"first group" index:1 size:CGSizeMake(48, 25)];
-            [cell addSubview:RBMan];
+            [cell.contentView addSubview:RBMan];
             [RBMan handleTitle:@"男"];
-            [cell addSubview:RBWoman];
+            [cell.contentView addSubview:RBWoman];
             [RBWoman handleTitle:@"女"];
 
             //按照GroupId添加观察者
@@ -196,15 +163,15 @@ static int num = 1;
             }];
             [RBWoman mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(cell.mas_centerY);
-                make.right.equalTo(cell.mas_right).with.offset(-20);
+                make.right.equalTo(cell.mas_right).with.offset(-15);
                 make.width.mas_equalTo(@58);
                 make.height.mas_equalTo(@35);
             }];
             //
-            if ([self.userInformation.userSex integerValue] == 1) {
+            
+            if (userInformation.sex == 2) {
                 [RBWoman setButtonState];
-
-            } else if ([self.userInformation.userSex integerValue] == 0) {
+            } else if (userInformation.sex == 1) {
                 [RBMan setButtonState];
             }
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -218,11 +185,6 @@ static int num = 1;
             UILabel *LabName = (UILabel *)[cell viewWithTag:11001];
             LabName.text = @"地区";
             UILabel *LabUserArea = (UILabel *)[cell viewWithTag:11003];
-            LabUserArea.text = self.userInformation.userArea;
-
-            UIImageView *headimage = (UIImageView *)[cell viewWithTag:11002];
-            headimage.hidden = YES;
-
             break;
         }
 
@@ -265,64 +227,19 @@ static int num = 1;
     default:
         break;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    switch (indexPath.section) {
-    case 0: {
-        switch (indexPath.row) {
-        case 0: {
-            [self actionChangeUserHeadimage];
-
-            break;
-        }
-        case 1: {
-            [self actionChangeUserName];
-
-            break;
-        }
-        case 2: {
-
-            [self actionChangeUserGSNumber];
-
-            break;
-        }
-        case 3: {
-
-            [self actionChangeUserSex];
-
-            break;
-        }
-        case 5: {
-
-            [self actionChangeUserArea];
-            break;
-        }
-        case 4: {
-
-            [self actionChangeUserPwd];
-
-            break;
-        }
-
-        default:
-            break;
-        }
-
-        break;
-    }
-
-    case 1: {
-        [self actionChangeUserInformation];
-        [self.tableView reloadData];
-        break;
-    }
-    default:
-        break;
+    if (indexPath.row==0) {
+        [self actionChangeUserHeadimage];
+    }else if (indexPath.row==1) {
+        [self actionChangeUserName];
+    }else{
+        return;
     }
 }
 
@@ -334,7 +251,7 @@ static int num = 1;
     case 1: {
         // 读取文本框的值显示出来
         UITextField *txtUserName = [alertView textFieldAtIndex:0];
-        self.userInformation.userName = txtUserName.text;
+        userInformation.nickname = txtUserName.text;
         [self.tableView reloadData];
         break;
     }
@@ -347,15 +264,18 @@ static int num = 1;
 //推退出登录
 - (UIView *)creatFootView {
 
-    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kGTSDeviceWidth, 60)];
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kNMDeviceWidth, 60)];
 
     UIButton *btnExit = [UIButton buttonWithType:UIButtonTypeCustom];
     btnExit.layer.cornerRadius = 5;
     btnExit.layer.masksToBounds = YES;
     [btnExit setTitle:@"退出登录" forState:UIControlStateNormal];
+    [btnExit setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [btnExit addTarget:self action:@selector(actionLogout) forControlEvents:UIControlEventTouchUpInside];
-    btnExit.backgroundColor = BACKCOLOR;
-    [btnExit setTintColor:[UIColor whiteColor]];
+    btnExit.backgroundColor = [UIColor clearColor];
+    btnExit.layer.borderWidth = 1;
+    btnExit.layer.borderColor = [UIColor orangeColor].CGColor;
+//    [btnExit setTintColor:[UIColor whiteColor]];
     btnExit.titleLabel.font = [UIFont systemFontOfSize:20];
 
     [footView addSubview:btnExit];
@@ -375,25 +295,19 @@ static int num = 1;
     UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:nil];
     [actionSheet bk_addButtonWithTitle:@"拍照"
                                handler:^{
-                                   selectPhotoType = 1;
                                    [weakSelf getImgFromCamera];
                                }];
     [actionSheet bk_addButtonWithTitle:@"从手机相册选择"
                                handler:^{
-                                   selectPhotoType = 2;
                                    [weakSelf getHeadImage];
 
                                }];
     [actionSheet bk_addButtonWithTitle:@"取消"
                                      handler:^{
-                                         selectPhotoType = 0;
                                      }];
 
     [actionSheet bk_setDidDismissBlock:^(UIActionSheet *sheet, NSInteger buttonIndex) {
-        if (selectPhotoType == 1) {
-
-        } else if (selectPhotoType == 2) {
-        }
+     
     }];
     [actionSheet showInView:self.view];
 }
@@ -402,182 +316,97 @@ static int num = 1;
     [self doAlertInput:@"修改昵称" andPlaceholder:nil];
 }
 
-- (void)actionChangeUserGSNumber {
-     [self.view makeToast:@"手机号不可修改" duration:2 position:CSToastPositionBottom];
-}
-
-- (void)actionChangeUserSex {
-}
-
-- (void)actionChangeUserArea {
-}
-
-- (void)actionChangeUserPwd {
-
-//    UIStoryboard *addDeviceStoryBoard = [UIStoryboard storyboardWithName:@"SCReLoginSB" bundle:nil];
-//    SCReFindPwdVC *vc = [addDeviceStoryBoard instantiateViewControllerWithIdentifier:@"SCReFindPwdVC"];
-//    vc.type = 4;
-//    vc.titleName = @"修改密码";
-//    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)actionChangeUserInformation {
-}
-
 - (void)actionLogout {
-   
+    
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:nil forKey:@"userInfo"];
+    
+    BOOL isHave = 0;
+    NSArray * arr = self.navigationController.viewControllers;
+    for (UIViewController * vc in arr) {
+        if ([vc isKindOfClass:[LPloginVC class]]) {
+            [self.navigationController popToViewController:vc animated:YES];
+            isHave = YES;
+        }
+    }
+    if (!isHave ) {
+        LPloginVC *login = [[LPloginVC alloc] init];
+        UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
+        [[UIApplication sharedApplication].keyWindow setRootViewController:nav];
+    }
 }
 
-- (void)actionGetUserInformation {
-    
-    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary * userDic= [userDef objectForKey:@"userInfomation" ];
-    NSString *strImage = [userDic objectForKey:@"headIcon"];
-    [self.userInformation.userHeadimage sd_setImageWithURL:[NSURL URLWithString:strImage] placeholderImage:[UIImage imageNamed:@"DefaultHeadImage"]];
-    self.userInformation.imageStr=strImage;
-    self.userInformation.userSex = (NSNumber *)[userDic objectForKey:@"gender"];
-    self.userInformation.userName = (NSString *)[userDic objectForKey:@"nickName"];
-    self.userInformation.userArea = (NSString *)[userDic objectForKey:@"city"];
-    [self.tableView reloadData];
-    
-    
-//    AVUser *user = [AVUser currentUser];
-//    [user fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-//        [AVUser changeCurrentUser:(AVUser *)object save:YES];
-//    
-//    
-////        NSDictionary *dic = @{@"uid":[AVUser currentUser].objectId
-////                              };
-////        [SCADeviceService getEntrepreneurialCenterMsg:dic completion:^(id result,NSError *error)
-////         {
-////             NSDictionary * userDic;
-////             if (error) {
-////                 NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-////                 userDic= [userDef objectForKey:@"userInfomation" ];
-////                   [self.view makeToast:error.localizedDescription duration:2 position:CSToastPositionBottom];
-////             }else{
-////                 userDic=[NSDictionary dictionaryWithDictionary:result];
-////             }
-////             NSString *strImage = [[AVUser currentUser] objectForKey:@"headIcon"];
-////             [self.userInformation.userHeadimage sd_setImageWithURL:[NSURL URLWithString:strImage] placeholderImage:[UIImage imageNamed:@"DefaultHeadImage"]];
-////             self.userInformation.imageStr=strImage;
-////             self.userInformation.userSex = (NSNumber *)[[AVUser currentUser] objectForKey:@"gender"];
-////             self.userInformation.userName = (NSString *)[[AVUser currentUser] objectForKey:@"nickName"];
-////             self.userInformation.userArea = (NSString *)[[AVUser currentUser] objectForKey:@"city"];
-////             num=1;
-////             [self.tableView reloadData];
-////         }];
-//        
-//        }];
-}
 
-- (void)actionUpdateUserInfo {
+-(void)changeHeadImageSaveCompletion:(UIImage *)changeImage{
+    NSString * url =[NSString stringWithFormat:@"/userc/updateImage?vc=%@",userInformation.vc];
+    NSString * requestUrl = [REQUESTURL stringByAppendingString:url];
     
-    //    if (self.userInformation.userName.length <= 0) {
-    //        [self.view makeToast:@"请填写昵称" duration:2.0 position:CSToastPositionCenter];
-    //        return;
-    //    }
-    //判断只有图片有修改才需要上传图片
-//    if (!haveChangeUserImg) {
-//        [self.navigationController popViewControllerAnimated:NO];
-//        return;
-//    }
-//    
-    //    [SVProgressHUD showWithStatus:@"正在保存..."];
-//    NSData *dataImage = UIImageJPEGRepresentation(self.userInformation.userHeadimage.image, 0.5);
-//    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    __weak typeof(self) weakSelf = self;
+    NSData *data = UIImageJPEGRepresentation(changeImage, 1.0f);
+    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
-    [SCADeviceService editUserInfoWithName:self.userInformation.userName gender:self.userInformation.userSex avatar:nil completion:^(id result, NSError *error) {
-        if (!error) {
-            NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-            NSMutableDictionary * userDic= [userDef objectForKey:@"userInfomation" ];
-            NSMutableDictionary * changeDic=[NSMutableDictionary dictionaryWithDictionary:userDic];
-            [changeDic setObject:self.userInformation.userName forKey:@"nickName"];
-            [changeDic setObject:self.userInformation.userSex forKey:@"gender"];
-            [userDef setObject:changeDic forKey:@"userInfomation"];
-            
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"backImage" object:nil userInfo:@{@"user":@1}];
-            //[self.navigationController popViewControllerAnimated:NO];
+    [ZYHCommonService createASIFormDataRequset:requestUrl param:@{@"base64Data":encodedImageStr,@"type":@1} completion:^(id result, NSError *error) {
+        if (error) {
+            [ZYHCommonService showMakeToastView:[NSString stringWithFormat:@"头像修改错误:%@",error.localizedDescription]];
         }else{
-            [weakSelf.view makeToast:[NSString stringWithFormat:@"保存失败:%@", error.localizedDescription] duration:2 position:CSToastPositionTop];
+            NSDictionary * dicResult =[NSDictionary dictionaryWithDictionary:result];
+            if ([dicResult.allKeys containsObject:@"data"]) {
+                userInformation.faceUrl = dicResult[@"data"];
+                NSDictionary * dicUserInfo = [userInformation toDictionary];
+                NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:dicUserInfo forKey:@"userInfo"];
+                [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            }else{
+                [ZYHCommonService showMakeToastView:@"返回数据错误"];
+            }
         }
     }];
-
     
-    //异步执行队列任务
-//    dispatch_async(globalQueue, ^{
-//        AVFile *file = [AVFile fileWithData:dataImage];
-//        [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            //             [SVProgressHUD dismiss];
-//            if (succeeded) {
-//                [[AVUser currentUser] setObject:weakSelf.userInformation.userName forKey:@"nickName"];
-//                [[AVUser currentUser] setObject:weakSelf.userInformation.userArea forKey:@"city"];
-//                [[AVUser currentUser] setObject:weakSelf.userInformation.userSex forKey:@"gender"];
-//                [[AVUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                    if (succeeded) {
-//                        // [self.view makeToast:@"保存成功" duration:2 position:CSToastPositionTop];
-//                        [self  saveUserPortrait:[[AVUser currentUser] objectForKey:@"avatar"]];
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:@"backImage" object:nil userInfo:@{@"user":@1}];
-//                        [self.navigationController popViewControllerAnimated:NO];
-//                    } else {
-//                        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"保存失败:%@", error]];
-//                    }
-//                }];
-//            }else {
-//                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"保存失败:%@", error]];
-//            }
-//        }
-//                          progressBlock:^(NSInteger percentDone) {
-//                              
-//                          }];
-//        
-//    });
-}
-
--(void)changeHeadImageSaveCompletion:(SHResultObjectBlock)completion{
-    NSData *dataImage = UIImageJPEGRepresentation(self.userInformation.userHeadimage.image, 0.5);
-    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(globalQueue, ^{
-        
-    });
-    
-        //        [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//            [SVProgressHUD dismiss];
-//            if (succeeded) {
-//                [[AVUser currentUser] setObject:file.url forKey:@"avatar"];
-//                if (succeeded) {
-//                    self.userInformation.imageStr=file.url;
-//                    [weakSelf.view makeToast:@"保存成功" duration:2 position:CSToastPositionTop];
-//                    [weakSelf  saveUserPortrait:[[AVUser currentUser] objectForKey:@"avatar"]];
-//                    [self.tableView reloadData];
-
-//                } else {
-//                    [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"保存失败:%@", error.localizedDescription]];
-//                }
-//            } else {
-//                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"保存失败:%@", error.localizedDescription]];
-//            }
-//        } progressBlock:^(NSInteger percentDone) {
-//            
-//        }];
     
 }
 
+// - 修改昵称
+- (void)actionUpdateUserInfo {
+    NSString * url =[NSString stringWithFormat:@"/userc/updateInfo?vc=%@",userInformation.vc];
+    NSString * requestUrl = [REQUESTURL stringByAppendingString:url];
+    [ZYHCommonService createASIFormDataRequset:requestUrl param:@{@"nickname":userInformation.nickname} completion:^(id result, NSError *error) {
+        if (error) {
+            [ZYHCommonService showMakeToastView:[NSString stringWithFormat:@"昵称修改错误:%@",error.localizedDescription]];
+        }else{
+            NSDictionary * dicUserInfo = [userInformation toDictionary];
+            NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setObject:dicUserInfo forKey:@"userInfo"];
+        }
+    }];
+}
+
+//单选按钮的代理方法 - 修改性别
+- (void)radioButtonSelectedAtIndex:(NSUInteger)index inGroup:(NSString *)groupId {
+    if ((index+1) != userInformation.sex) {
+        userInformation.sex = (int)index+1;
+        NSString * url =[NSString stringWithFormat:@"/userc/updateInfo?vc=%@",userInformation.vc];
+        NSString * requestUrl = [REQUESTURL stringByAppendingString:url];
+        [ZYHCommonService createASIFormDataRequset:requestUrl param:@{@"sex":[NSNumber numberWithInt:userInformation.sex]} completion:^(id result, NSError *error) {
+            if (error) {
+                [ZYHCommonService showMakeToastView:[NSString stringWithFormat:@"性别修改错误:%@",error.localizedDescription]];
+            }else{
+                NSDictionary * dicUserInfo = [userInformation toDictionary];
+                NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:dicUserInfo forKey:@"userInfo"];
+            }
+        }];
+    }
+}
 
 #pragma mark - 修改框
 - (void)doAlertInput:(NSString *)Title andPlaceholder:(NSString *)placeholder {
 
-    if (kGTSiOSVersionFirstValue >= 8) {
         // 初始化
         UIAlertController *alertDialog = [UIAlertController alertControllerWithTitle:Title message:nil preferredStyle:UIAlertControllerStyleAlert];
 
         // 创建文本框
         [alertDialog addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            if(self.userInformation.userName){
-                 textField.text=self.userInformation.userName;
+            if(userInformation.nickname){
+                 textField.text=userInformation.nickname;
             }else{
                 textField.placeholder =@"昵称在2~12个字之间";//
             }
@@ -595,9 +424,11 @@ static int num = 1;
                                                                 userName = alertDialog.textFields.firstObject;
                                                                 userName.delegate = self;
                                                                 if ([self judgeNameQualified:userName.text]) {
-                                                                    self.userInformation.userName = userName.text;
-                                                                    [self actionUpdateUserInfo];
-                                                                    [self.tableView reloadData];
+                                                                    if (![userInformation.nickname isEqualToString:userName.text]) {
+                                                                        userInformation.nickname = userName.text;
+                                                                        [self actionUpdateUserInfo];
+                                                                        [self.tableView reloadData];
+                                                                    }
                                                                 } else {
                                                                     [self actionChangeUserName];
                                                                 }
@@ -614,16 +445,18 @@ static int num = 1;
         [alertDialog addAction:cancle];
         // 呈现警告视图
         [self presentViewController:alertDialog animated:YES completion:nil];
-    } else {
-
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:Title message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"修改", nil];
-        [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
-
-        UITextField *nameField = [alertView textFieldAtIndex:0];
-        nameField.placeholder = @"请输入昵称";
-
-        [alertView show];
-    }
+    
+    
+//    } else {
+//
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:Title message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"修改", nil];
+//        [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+//
+//        UITextField *nameField = [alertView textFieldAtIndex:0];
+//        nameField.placeholder = @"请输入昵称";
+//
+//        [alertView show];
+//    }
 }
 
 - (int)judgeNameQualified:(NSString *)nickName {
@@ -705,84 +538,19 @@ static int num = 1;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    haveChangeUserImg = 1; //修改过图片了
     [picker dismissViewControllerAnimated:YES completion:nil];
     [popoverVC dismissPopoverAnimated:YES];
     // UIImagePickerControllerOriginalImage 原始图片
     // UIImagePickerControllerEditedImage 编辑过的
     UIImage *img = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.userInformation.userHeadimage = [[UIImageView alloc] initWithImage:img];
-    [self changeHeadImageSaveCompletion:nil];
+    UIImage * reduceImg =[self imageWithImageSimple:img scaledToSize:CGSizeMake(100, 100)];
+    //userInformation.userHeadimage = [[UIImageView alloc] initWithImage:img];
+    [self changeHeadImageSaveCompletion:reduceImg];
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark -单选按钮的代理方法
-//单选按钮的代理方法
-- (void)radioButtonSelectedAtIndex:(NSUInteger)index inGroup:(NSString *)groupId {
-
-    self.userInformation.userSex = [NSNumber numberWithInteger:index];
-    if (haveChangeUserSex) {
-        num = 0;
-        __weak typeof(self) weakSelf = self;
-        
-        [SCADeviceService editUserInfoWithName:nil gender:weakSelf.userInformation.userSex avatar:nil completion:^(id result, NSError *error) {
-            if (!error) {
-                
-                NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-                NSDictionary * userDic= [userDef objectForKey:@"userInfomation" ];
-                NSMutableDictionary * changeDic=[NSMutableDictionary dictionaryWithDictionary:userDic];
-                [changeDic setObject:self.userInformation.userSex forKey:@"gender"];
-                [userDef setObject:changeDic forKey:@"userInfomation"];
-                
-                [weakSelf.view makeToast:@"保存成功" duration:2 position:CSToastPositionTop];
-                [weakSelf.tableView reloadData];
-            }else{
-                [weakSelf.view makeToast:[NSString stringWithFormat:@"保存失败:%@", error.localizedDescription] duration:2 position:CSToastPositionTop];
-            }
-        }];
-
-        
-//        [[AVUser currentUser] setObject:weakSelf.userInformation.userName forKey:@"nickName"];
-//        [[AVUser currentUser] setObject:weakSelf.userInformation.userSex forKey:@"gender"];
-//        [[AVUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                [self.view makeToast:@"保存成功!" duration:1.5 position:CSToastPositionCenter];
-//
-//            } else {
-//                [self filterError:error];
-//            }
-//
-//        }];
-    }
-    haveChangeUserSex=1;
-}
-
--(void)saveUserPortrait:(NSString *)url
-{
-    UIImage *sendImage = [[self getImageFromURL:url] blurImageWithRadius:3];
-    
-    NSData *imageViewData = UIImagePNGRepresentation(sendImage);
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *pictureName= @"UserPortrait.png";
-    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:pictureName];
-    [imageViewData writeToFile:savedImagePath atomically:YES];//保存照片到沙盒目录
-}
-
-
-- (UIImage *)getImageFromURL:(NSString *)fileURL {
-    
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
-    
-    if ([data length] == 0) {
-        return [UIImage imageNamed:@"User-DefaultHeadImage"];
-    }
-    [self reduceImage:[UIImage imageWithData:data] percent:0.1];
-    
-    return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]]];
 }
 
 //压缩图片质量
@@ -793,10 +561,8 @@ static int num = 1;
     return newImage;
 }
 
-
-
 //压缩图片
-+ (UIImage *)imageWithImageSimple:(UIImage *)image scaledToSize:(CGSize)newSize {
+- (UIImage *)imageWithImageSimple:(UIImage *)image scaledToSize:(CGSize)newSize {
     // Create a graphics image context
     UIGraphicsBeginImageContext(newSize);
     // Tell the old image to draw in this new context, with the desired

@@ -5,6 +5,9 @@ def commonPods
     pod 'JSONModel'
     pod 'SVProgressHUD'
     pod 'Masonry'
+    pod 'SDWebImage'
+    pod 'MJRefresh'
+    pod 'BlocksKit'
 end
 
 target 'AlivcLiveVideoDemo' do

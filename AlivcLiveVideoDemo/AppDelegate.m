@@ -20,9 +20,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dicUserInfo = [userDefaults objectForKey:@"userInfo"];
+    BOOL isLogin = 1;//是否跳转登录页；
+    if (dicUserInfo) {
+        NSDate * now = [NSDate date];
+        //        NSString * nowStr = [ZYHCommonService stringFromDateWithDate:now formatStr:@"YYYY-MM-dd HH:mm:ss"];
+        //                NSDate * now = [ZYHCommonService nsdateFromString:@"2017-11-11 13:35:13" WithFormat:@"YYYY-MM-dd HH:mm:ss"];
+        NSDate * vcInvalid = [ZYHCommonService nsdateFromString:dicUserInfo[@"vcInValidTime"] WithFormat:@"YYYY-MM-dd HH:mm:ss"];
+        long difHours1 = [ZYHCommonService timeDifferentNum:vcInvalid endDate:now type:2];
+        if (difHours1 < 25) {
+            [userDefaults setObject:nil forKey:@"userInfo"];
+            isLogin = YES;
+        }else{
+            isLogin = NO;
+        }
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
+    if (isLogin) {
+        LPloginVC *login = [[LPloginVC alloc] init];
+        UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
+        self.window.rootViewController = nav;
+    }else{
+        LPbeginPlayingVC *login = [[LPbeginPlayingVC alloc] init];
+        UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
+        self.window.rootViewController = nav;
+    }
     return YES;
 }
 
@@ -37,36 +63,32 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     NSDictionary * dicUserInfo = [userDefaults objectForKey:@"userInfo"];
-    BOOL isLogin = 1;
+    BOOL isLogin = 1;//是否跳转登录页；
     if (dicUserInfo) {
         NSDate * now = [NSDate date];
         //        NSString * nowStr = [ZYHCommonService stringFromDateWithDate:now formatStr:@"YYYY-MM-dd HH:mm:ss"];
-        //        NSDate * now = [ZYHCommonService nsdateFromString:@"2017-11-10 15:35:13" WithFormat:@"YYYY-MM-dd HH:mm:ss"];
+        //                NSDate * now = [ZYHCommonService nsdateFromString:@"2017-11-11 13:35:13" WithFormat:@"YYYY-MM-dd HH:mm:ss"];
         NSDate * vcInvalid = [ZYHCommonService nsdateFromString:dicUserInfo[@"vcInValidTime"] WithFormat:@"YYYY-MM-dd HH:mm:ss"];
         long difHours1 = [ZYHCommonService timeDifferentNum:vcInvalid endDate:now type:2];
         if (difHours1 < 25) {
+            [userDefaults setObject:nil forKey:@"userInfo"];
             isLogin = YES;
         }else{
             isLogin = NO;
         }
     }
-    
     if (isLogin) {
         LPloginVC *login = [[LPloginVC alloc] init];
         UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
         self.window.rootViewController = nav;
-    }else{
-        LPbeginPlayingVC *login = [[LPbeginPlayingVC alloc] init];
-        UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:login];
-        self.window.rootViewController = nav;
     }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

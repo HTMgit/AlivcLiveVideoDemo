@@ -9,7 +9,7 @@
 #import "LPuserModel.h"
 
 @implementation LPuserModel
-+ (JSONKeyMapper *)LPuserModel {
-    return 0;
-}
+//+ (JSONKeyMapper *)LPuserModel {
+//    return 0;
+//}
 @end

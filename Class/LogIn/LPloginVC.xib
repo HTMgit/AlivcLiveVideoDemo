@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LPloginVC">
             <connections>
+                <outlet property="btnLogin" destination="wZL-Fe-Ogp" id="kQD-mz-UEt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,12 +41,15 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZL-Fe-Ogp">
-                    <rect key="frame" x="113" y="193" width="149" height="27"/>
+                    <rect key="frame" x="62.5" y="193" width="250" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="149" id="Oeh-gc-DpD"/>
-                        <constraint firstAttribute="height" constant="27" id="h5h-c9-6Mk"/>
+                        <constraint firstAttribute="width" constant="250" id="Oeh-gc-DpD"/>
+                        <constraint firstAttribute="height" constant="36" id="h5h-c9-6Mk"/>
                     </constraints>
-                    <state key="normal" title="登录并开播"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="actionLoginAndPlaying:" destination="-1" eventType="touchUpInside" id="JTE-RV-BL6"/>
                     </connections>
@@ -71,7 +75,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.73371365853902248" green="1" blue="0.94290808424421091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="wZL-Fe-Ogp" firstAttribute="top" secondItem="DCW-mQ-op4" secondAttribute="bottom" constant="64" id="4hX-kU-HGH"/>
                 <constraint firstItem="IcT-TR-xdQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5XR-nc-hX6"/>

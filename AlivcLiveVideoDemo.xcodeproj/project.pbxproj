@@ -20,10 +20,12 @@
 		063AD4B11F8E174E0046DE5B /* LPbeginPlayingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AD4AF1F8E174E0046DE5B /* LPbeginPlayingVC.m */; };
 		063AD4B21F8E174E0046DE5B /* LPbeginPlayingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063AD4B01F8E174E0046DE5B /* LPbeginPlayingVC.xib */; };
 		063AD4B51F8E2EB90046DE5B /* SCSelfInformationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AD4B41F8E2EB90046DE5B /* SCSelfInformationVC.m */; };
-		064006671F8EFB8C00E9AB07 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 064006601F8EFB8C00E9AB07 /* RadioButton-Selected.png */; };
-		064006681F8EFB8C00E9AB07 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 064006611F8EFB8C00E9AB07 /* RadioButton-Unselected.png */; };
-		064006691F8EFB8C00E9AB07 /* ZYRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 064006641F8EFB8C00E9AB07 /* ZYRadioButton.m */; };
 		0640066A1F8EFB8C00E9AB07 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 064006661F8EFB8C00E9AB07 /* UIImage+ImageEffects.m */; };
+		064006711F8EFF1600E9AB07 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 0640066C1F8EFF1600E9AB07 /* RadioButton-Selected.png */; };
+		064006721F8EFF1600E9AB07 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 0640066D1F8EFF1600E9AB07 /* RadioButton-Unselected.png */; };
+		064006731F8EFF1600E9AB07 /* ZYRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 064006701F8EFF1600E9AB07 /* ZYRadioButton.m */; };
+		064006771F8F149E00E9AB07 /* UserFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064006761F8F149E00E9AB07 /* UserFormCell.xib */; };
+		064006791F8F14C000E9AB07 /* UserRadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064006781F8F14C000E9AB07 /* UserRadioCell.xib */; };
 		06C210931F8B7FB40051BB68 /* ZYHCommonService.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210921F8B7FB40051BB68 /* ZYHCommonService.m */; };
 		06C210B61F8B806A0051BB68 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C210971F8B806A0051BB68 /* NSObject+SBJson.m */; };
 		06C210B71F8B806A0051BB68 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C2109A1F8B806A0051BB68 /* SBJsonParser.m */; };
@@ -92,13 +94,15 @@
 		063AD4B01F8E174E0046DE5B /* LPbeginPlayingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LPbeginPlayingVC.xib; sourceTree = "<group>"; };
 		063AD4B31F8E2EB90046DE5B /* SCSelfInformationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSelfInformationVC.h; sourceTree = "<group>"; };
 		063AD4B41F8E2EB90046DE5B /* SCSelfInformationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSelfInformationVC.m; sourceTree = "<group>"; };
-		064006601F8EFB8C00E9AB07 /* RadioButton-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Selected.png"; sourceTree = "<group>"; };
-		064006611F8EFB8C00E9AB07 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
-		064006621F8EFB8C00E9AB07 /* RadioButtonDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RadioButtonDemo-Prefix.pch"; sourceTree = "<group>"; };
-		064006631F8EFB8C00E9AB07 /* ZYRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYRadioButton.h; sourceTree = "<group>"; };
-		064006641F8EFB8C00E9AB07 /* ZYRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYRadioButton.m; sourceTree = "<group>"; };
 		064006651F8EFB8C00E9AB07 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		064006661F8EFB8C00E9AB07 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		0640066C1F8EFF1600E9AB07 /* RadioButton-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Selected.png"; sourceTree = "<group>"; };
+		0640066D1F8EFF1600E9AB07 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
+		0640066E1F8EFF1600E9AB07 /* RadioButtonDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RadioButtonDemo-Prefix.pch"; sourceTree = "<group>"; };
+		0640066F1F8EFF1600E9AB07 /* ZYRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYRadioButton.h; sourceTree = "<group>"; };
+		064006701F8EFF1600E9AB07 /* ZYRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYRadioButton.m; sourceTree = "<group>"; };
+		064006761F8F149E00E9AB07 /* UserFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserFormCell.xib; sourceTree = "<group>"; };
+		064006781F8F14C000E9AB07 /* UserRadioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRadioCell.xib; sourceTree = "<group>"; };
 		06C210911F8B7FB40051BB68 /* ZYHCommonService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHCommonService.h; sourceTree = "<group>"; };
 		06C210921F8B7FB40051BB68 /* ZYHCommonService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHCommonService.m; sourceTree = "<group>"; };
 		06C210961F8B806A0051BB68 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -231,23 +235,39 @@
 		0640065E1F8EFB8C00E9AB07 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0640065F1F8EFB8C00E9AB07 /* RadioButton */,
+				0640066B1F8EFF1600E9AB07 /* RadioButton */,
 				064006651F8EFB8C00E9AB07 /* UIImage+ImageEffects.h */,
 				064006661F8EFB8C00E9AB07 /* UIImage+ImageEffects.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		0640065F1F8EFB8C00E9AB07 /* RadioButton */ = {
+		0640066B1F8EFF1600E9AB07 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
-				064006601F8EFB8C00E9AB07 /* RadioButton-Selected.png */,
-				064006611F8EFB8C00E9AB07 /* RadioButton-Unselected.png */,
-				064006621F8EFB8C00E9AB07 /* RadioButtonDemo-Prefix.pch */,
-				064006631F8EFB8C00E9AB07 /* ZYRadioButton.h */,
-				064006641F8EFB8C00E9AB07 /* ZYRadioButton.m */,
+				0640066C1F8EFF1600E9AB07 /* RadioButton-Selected.png */,
+				0640066D1F8EFF1600E9AB07 /* RadioButton-Unselected.png */,
+				0640066E1F8EFF1600E9AB07 /* RadioButtonDemo-Prefix.pch */,
+				0640066F1F8EFF1600E9AB07 /* ZYRadioButton.h */,
+				064006701F8EFF1600E9AB07 /* ZYRadioButton.m */,
 			);
 			path = RadioButton;
+			sourceTree = "<group>";
+		};
+		064006741F8F149E00E9AB07 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		064006751F8F149E00E9AB07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				064006761F8F149E00E9AB07 /* UserFormCell.xib */,
+				064006781F8F14C000E9AB07 /* UserRadioCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		06C210901F8B7FB40051BB68 /* Class */ = {
@@ -255,6 +275,8 @@
 			children = (
 				063AD4B31F8E2EB90046DE5B /* SCSelfInformationVC.h */,
 				063AD4B41F8E2EB90046DE5B /* SCSelfInformationVC.m */,
+				064006741F8F149E00E9AB07 /* Models */,
+				064006751F8F149E00E9AB07 /* Views */,
 				0640065E1F8EFB8C00E9AB07 /* Common */,
 				06387B5A1F8CD89000BB68F0 /* LogIn */,
 				06387B451F8C7F6500BB68F0 /* AlivcLivePlay */,
@@ -508,17 +530,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064006711F8EFF1600E9AB07 /* RadioButton-Selected.png in Resources */,
 				06C210C21F8B806A0051BB68 /* license in Resources */,
 				063AD4B21F8E174E0046DE5B /* LPbeginPlayingVC.xib in Resources */,
 				6CED4BB21D0E8C0D004FCA03 /* LaunchScreen.storyboard in Resources */,
-				064006681F8EFB8C00E9AB07 /* RadioButton-Unselected.png in Resources */,
 				063AD4A61F8DBB3B0046DE5B /* SHSelLockCell.xib in Resources */,
 				06C210C31F8B806A0051BB68 /* README.markdown in Resources */,
 				6CED4BAF1D0E8C0D004FCA03 /* Assets.xcassets in Resources */,
+				064006791F8F14C000E9AB07 /* UserRadioCell.xib in Resources */,
 				06387B5F1F8CD89000BB68F0 /* LPloginVC.xib in Resources */,
+				064006771F8F149E00E9AB07 /* UserFormCell.xib in Resources */,
 				06387B581F8CBDCB00BB68F0 /* AlivcLiveViewController.xib in Resources */,
-				064006671F8EFB8C00E9AB07 /* RadioButton-Selected.png in Resources */,
 				6CED4BAD1D0E8C0D004FCA03 /* Main.storyboard in Resources */,
+				064006721F8EFF1600E9AB07 /* RadioButton-Unselected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +603,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AlivcLiveVideoDemo/Pods-AlivcLiveVideoDemo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -600,7 +625,6 @@
 				06C210C41F8B806A0051BB68 /* UIView+Toast.m in Sources */,
 				06C210BB1F8B806A0051BB68 /* SBJsonStreamParserState.m in Sources */,
 				06C210B71F8B806A0051BB68 /* SBJsonParser.m in Sources */,
-				064006691F8EFB8C00E9AB07 /* ZYRadioButton.m in Sources */,
 				06C210BA1F8B806A0051BB68 /* SBJsonStreamParserAdapter.m in Sources */,
 				6CED4BAA1D0E8C0D004FCA03 /* ViewController.m in Sources */,
 				06C210B91F8B806A0051BB68 /* SBJsonStreamParserAccumulator.m in Sources */,
@@ -615,6 +639,7 @@
 				063AD4A71F8DBB3B0046DE5B /* SHSelLockCell.m in Sources */,
 				0640066A1F8EFB8C00E9AB07 /* UIImage+ImageEffects.m in Sources */,
 				06C210BF1F8B806A0051BB68 /* SBJsonTokeniser.m in Sources */,
+				064006731F8EFF1600E9AB07 /* ZYRadioButton.m in Sources */,
 				06387B591F8CBDCB00BB68F0 /* AlivcLiveViewController.m in Sources */,
 				06387B4E1F8CAFD700BB68F0 /* LPlivePlayingVC.m in Sources */,
 				06C210B61F8B806A0051BB68 /* NSObject+SBJson.m in Sources */,

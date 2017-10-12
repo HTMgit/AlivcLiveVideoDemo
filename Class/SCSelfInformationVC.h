@@ -6,7 +6,6 @@
 //  Copyright © 2016年 gtscn. All rights reserved.
 //
 
-#import "GTSBaseTableViewController.h"
 
-@interface SCSelfInformationVC : GTSBaseTableViewController
+@interface SCSelfInformationVC : UITableViewController
 @end
